@@ -48,11 +48,7 @@ namespace TurtleMover
 
 			SkiaView.PaintSurface += OnPaint;
 
-			// Hello World
-			Game = new MyTurtleHelloWorld ();
-
-			// Simple jump game
-			//Game = new MyTurtleGame ();
+			Game = CurrentGame.Game;
 
 			var turtleStream = File.OpenRead (Path.Combine (NSBundle.MainBundle.ResourcePath, "Turtle.png"));
 			Drawer = new TurtleDrawer (turtleStream);

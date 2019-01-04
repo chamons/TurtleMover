@@ -29,6 +29,7 @@
   <ItemGroup>
     <Compile Include="MyTurtleHelloWorld.cs" />
     <Compile Include="MyTurtleGame.cs" />
+    <Compile Include="CurrentGame.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TurtleInterface\TurtleInterface.csproj">
