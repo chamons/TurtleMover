@@ -35,7 +35,7 @@ namespace TurtleLogic
 
 		public void OnKeyboard (string key)
 		{
-			if (key == " ") 
+			if (key == " " || key == "Space") 
 				Jump ();
 		}
 
