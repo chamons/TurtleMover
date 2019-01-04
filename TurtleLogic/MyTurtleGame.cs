@@ -5,16 +5,47 @@ namespace TurtleLogic
 {
 	public class MyTurtleGame
 	{
+		Point TurtlePosition;
+
+		const int GroundLevel = 100;
+		const int AreaWidth = 300;
+
+		public MyTurtleGame ()
+		{
+			TurtlePosition = new Point (50, GroundLevel);
+		}
+
 		public void OnDraw (long frame, ITurtleDrawing drawing)
 		{
+			HandlePhysics (frame);
+
 			drawing.Fill (new Color (128, 0, 0));
 
-			int position = 50 + (int)(frame * 2 % 300);
-			drawing.DrawTurtle (new Point (position, 100));
-
-			//drawing.DrawSquare (new Color (0, 255, 255), , new Size (50, 50));
+			drawing.DrawTurtle (TurtlePosition);
 
 			drawing.DrawText (new Color (255, 255, 255), new Point (200, 200), "Hello World");
+		}
+
+		void HandlePhysics (long frame)
+		{
+			int xPos = 50 + (int)(frame * 2 % AreaWidth);
+			int yPos = TurtlePosition.Y;
+			if (TurtlePosition.Y < GroundLevel)
+				yPos += 1;
+			TurtlePosition = new Point (xPos, yPos);
+		}
+
+		public void OnKeyboard (string key)
+		{
+			if (key == " ") {
+				if (TurtlePosition.Y == GroundLevel)
+					TurtlePosition = new Point (TurtlePosition.X, GroundLevel - 50);
+			}
+		}
+
+		public void OnClick (Point position)
+		{
+
 		}
 	}
 }
