@@ -53,10 +53,10 @@
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.Mac" />
     <Reference Include="SkiaSharp">
-      <HintPath>packages\SkiaSharp.1.68.0\lib\Xamarin.Mac20\SkiaSharp.dll</HintPath>
+      <HintPath>..\packages\SkiaSharp.1.68.0\lib\Xamarin.Mac20\SkiaSharp.dll</HintPath>
     </Reference>
     <Reference Include="SkiaSharp.Views.Mac">
-      <HintPath>packages\SkiaSharp.Views.1.68.0\lib\Xamarin.Mac20\SkiaSharp.Views.Mac.dll</HintPath>
+      <HintPath>..\packages\SkiaSharp.Views.1.68.0\lib\Xamarin.Mac20\SkiaSharp.Views.Mac.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -88,19 +88,23 @@
     <Compile Include="ViewController.designer.cs">
       <DependentUpon>ViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="TurtleDrawer.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Main.storyboard" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="TurtleInterface\TurtleInterface.csproj">
+    <ProjectReference Include="..\TurtleInterface\TurtleInterface.csproj">
       <Project>{13C06C12-C128-4E26-AE02-10459BD74681}</Project>
       <Name>TurtleInterface</Name>
     </ProjectReference>
-    <ProjectReference Include="TurtleLogic\TurtleLogic.csproj">
+    <ProjectReference Include="..\TurtleLogic\TurtleLogic.csproj">
       <Project>{08AA8CC0-EB2D-4B5D-BD93-DAE7D2EE1A30}</Project>
       <Name>TurtleLogic</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Turtle.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
 </Project>

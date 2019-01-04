@@ -45,5 +45,6 @@ namespace TurtleInterface
 		void Fill (Color color);
 		void DrawSquare (Color color, Point point, Size size);
 		void DrawText (Color color, Point point, string text);
+		void DrawTurtle (Point point);
 	}
 }
