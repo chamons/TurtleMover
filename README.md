@@ -1,4 +1,4 @@
 # TurtleMover
 Drawing Toy for Education
 
-![Turtle Mover][Image.png]
+![Screenshot][Image.png]
