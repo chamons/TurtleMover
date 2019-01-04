@@ -33,7 +33,7 @@ namespace TurtleMover
 		}
 
 		SKGLView SkiaView;
-		MyTurtleGame Game;
+		ITurtleGame Game;
 		TurtleDrawer Drawer;
 		NSTimer Timer;
 		public long Frame { get; private set; } = 0;
@@ -48,7 +48,11 @@ namespace TurtleMover
 
 			SkiaView.PaintSurface += OnPaint;
 
-			Game = new MyTurtleGame ();
+			// Hello World
+			Game = new MyTurtleHelloWorld ();
+
+			// Simple jump game
+			//Game = new MyTurtleGame ();
 
 			var turtleStream = File.OpenRead (Path.Combine (NSBundle.MainBundle.ResourcePath, "Turtle.png"));
 			Drawer = new TurtleDrawer (turtleStream);
