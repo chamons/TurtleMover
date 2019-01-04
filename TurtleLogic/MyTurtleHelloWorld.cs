@@ -8,7 +8,7 @@ namespace TurtleLogic
 		Point Position = new Point (350, 200);
 		public void OnDraw (long frame, ITurtleDrawing drawing)
 		{
-			drawing.Fill (Colors.Red);
+			drawing.Fill (new Color (192, 0, 0));
 			drawing.DrawText (Colors.White, new Point (200, 200), "Hello World");
 			drawing.DrawSquare (Colors.Green, new Point (75, 75), new Size (75, 75));
 			drawing.DrawTriangle (Colors.White, new Point (250, 50), ((int)frame * 2) % 360);
