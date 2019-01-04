@@ -19,11 +19,11 @@ namespace TurtleLogic
 		{
 			HandlePhysics (frame);
 
-			drawing.Fill (new Color (128, 0, 0));
+			drawing.Fill (Colors.Red);
 
 			drawing.DrawTurtle (TurtlePosition);
 
-			drawing.DrawText (new Color (255, 255, 255), new Point (200, 200), "Hello World");
+			drawing.DrawText (Colors.White, new Point (200, 200), "Hello World");
 		}
 
 		void HandlePhysics (long frame)
