@@ -10,7 +10,7 @@ using TurtleLogic;
 
 namespace TurtleMover
 {
-	public class CanvasView : SKGLView
+	public class CanvasView : SKCanvasView
 	{
 		public CanvasView (IntPtr p) : base (p)
 		{
@@ -32,7 +32,7 @@ namespace TurtleMover
 		{
 		}
 
-		SKGLView SkiaView;
+		CanvasView SkiaView;
 		ITurtleGame Game;
 		TurtleDrawer Drawer;
 		NSTimer Timer;
@@ -55,7 +55,7 @@ namespace TurtleMover
 			StartAnimationTimer ();
 		}
 
-		void OnPaint (object sender, SKPaintGLSurfaceEventArgs e)
+		void OnPaint (object sender, SKPaintSurfaceEventArgs e)
 		{
 			Drawer.CurrentCanvas = e.Surface.Canvas;
 			Drawer.CurrentCanvas.Clear (SKColors.Black);
