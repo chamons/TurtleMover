@@ -58,6 +58,8 @@ namespace TurtleMover
 		void OnPaint (object sender, SKPaintSurfaceEventArgs e)
 		{
 			Drawer.CurrentCanvas = e.Surface.Canvas;
+
+			Drawer.CurrentCanvas.Scale ((float)View.Layer.ContentsScale);
 			Drawer.CurrentCanvas.Clear (SKColors.Black);
 
 			Game.OnDraw (Frame, Drawer);
