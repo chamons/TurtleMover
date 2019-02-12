@@ -7,6 +7,8 @@ namespace TurtleLogic
 	{
 		Point TurtlePosition = new Point (350, 200);
 		Point SquarePosition = new Point (75, 75);
+		Size SquareSize = new Size (75, 75);
+		Size TurtleSize = new Size (64, 64);
 
 		Random random = new Random ();
 
@@ -18,7 +20,7 @@ namespace TurtleLogic
 			Color color = Colors.Red; //new Color ((byte)(random.Next () % 256), (byte)(random.Next () % 256), (byte)(random.Next () % 256));
 			drawing.Fill (color);
 
-			drawing.DrawSquare (Colors.Green, SquarePosition, new Size (75, 75));
+			drawing.DrawSquare (Colors.Green, SquarePosition, SquareSize);
 
 			drawing.DrawTurtle (TurtlePosition);
 		}
@@ -45,9 +47,26 @@ namespace TurtleLogic
 
 		void CheckForCollision ()
 		{
-			if (SquareContainsPoint (SquarePosition, new Size (75, 75), TurtlePosition))
+			Point upperLeft = TurtlePosition;
+			Point upperRight = new Point (TurtlePosition.X + TurtleSize.Width, TurtlePosition.Y);
+			Point lowerLeft = new Point (TurtlePosition.X, TurtlePosition.Y + TurtleSize.Height);
+			Point lowerRight = new Point (TurtlePosition.X + TurtleSize.Width, TurtlePosition.Y + TurtleSize.Height);
+
+			if (SquareContainsPoint (SquarePosition, SquareSize, upperLeft))
 			{
-				System.Diagnostics.Debug.WriteLine ("Hit!");
+				System.Diagnostics.Debug.WriteLine ("Hit UL!");
+			}
+			else if (SquareContainsPoint (SquarePosition, SquareSize, upperRight))
+			{
+				System.Diagnostics.Debug.WriteLine ("Hit UR!");
+			}
+			else if (SquareContainsPoint (SquarePosition, SquareSize, lowerLeft))
+			{
+				System.Diagnostics.Debug.WriteLine ("Hit LL!");
+			}
+			else if (SquareContainsPoint (SquarePosition, SquareSize, lowerRight))
+			{
+				System.Diagnostics.Debug.WriteLine ("Hit LR!");
 			}
 			// For each corner of the square
 			// If it is within the turtle box
