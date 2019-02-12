@@ -9,19 +9,19 @@ namespace TurtleLogic
 		Point SquarePosition = new Point (75, 75);
 		Size SquareSize = new Size (75, 75);
 		Size TurtleSize = new Size (64, 64);
+		int CaughtCount = 0;
 
 		Random random = new Random ();
 
 		public void OnDraw (long frame, ITurtleDrawing drawing)
 		{
-			// Notice when bump into square
 			// when that happens, generate new location for square
 			// Bonus: Add counter number times caught
 			Color color = Colors.Red; //new Color ((byte)(random.Next () % 256), (byte)(random.Next () % 256), (byte)(random.Next () % 256));
 			drawing.Fill (color);
 
 			drawing.DrawSquare (Colors.Green, SquarePosition, SquareSize);
-
+			drawing.DrawText (Colors.White, new Point (16, 16), CaughtCount.ToString ());
 			drawing.DrawTurtle (TurtlePosition);
 		}
 
@@ -54,19 +54,19 @@ namespace TurtleLogic
 
 			if (SquareContainsPoint (SquarePosition, SquareSize, upperLeft))
 			{
-				System.Diagnostics.Debug.WriteLine ("Hit UL!");
+				OnHit ();
 			}
 			else if (SquareContainsPoint (SquarePosition, SquareSize, upperRight))
 			{
-				System.Diagnostics.Debug.WriteLine ("Hit UR!");
+				OnHit ();
 			}
 			else if (SquareContainsPoint (SquarePosition, SquareSize, lowerLeft))
 			{
-				System.Diagnostics.Debug.WriteLine ("Hit LL!");
+				OnHit ();
 			}
 			else if (SquareContainsPoint (SquarePosition, SquareSize, lowerRight))
 			{
-				System.Diagnostics.Debug.WriteLine ("Hit LR!");
+				OnHit ();
 			}
 			// For each corner of the square
 			// If it is within the turtle box
@@ -75,6 +75,12 @@ namespace TurtleLogic
 			// Create new location for box
 			// Increment score
 			// Show Score
+		}
+
+		void OnHit ()
+		{
+			CaughtCount += 1;
+			SquarePosition = new Point (random.Next (0, 400), random.Next (0, 400));
 		}
 
 		bool SquareContainsPoint (Point square, Size size, Point p)
