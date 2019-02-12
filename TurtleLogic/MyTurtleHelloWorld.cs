@@ -17,11 +17,8 @@ namespace TurtleLogic
 			// Bonus: Add counter number times caught
 			Color color = Colors.Red; //new Color ((byte)(random.Next () % 256), (byte)(random.Next () % 256), (byte)(random.Next () % 256));
 			drawing.Fill (color);
-			drawing.DrawText (Colors.White, new Point (200, 200), "Hello World");
 
 			drawing.DrawSquare (Colors.Green, SquarePosition, new Size (75, 75));
-
-			drawing.DrawTriangle (Colors.White, new Point (250, 50), ((int)frame) % 360);
 
 			drawing.DrawTurtle (TurtlePosition);
 		}
@@ -30,16 +27,16 @@ namespace TurtleLogic
 		{
 			switch (key) {
 			case "Left":
-				TurtlePosition = new Point (TurtlePosition.X - 5, TurtlePosition.Y);
+				TurtlePosition = new Point (TurtlePosition.X - 10, TurtlePosition.Y);
 				break;
 			case "Right":
-				TurtlePosition = new Point (TurtlePosition.X + 5, TurtlePosition.Y);
+				TurtlePosition = new Point (TurtlePosition.X + 10, TurtlePosition.Y);
 				break;
 			case "Up":
-				TurtlePosition = new Point (TurtlePosition.X, TurtlePosition.Y - 5);
+				TurtlePosition = new Point (TurtlePosition.X, TurtlePosition.Y - 10);
 				break;
 			case "Down":
-				TurtlePosition = new Point (TurtlePosition.X, TurtlePosition.Y + 5);
+				TurtlePosition = new Point (TurtlePosition.X, TurtlePosition.Y + 10);
 				break;
 			}
 
@@ -55,6 +52,10 @@ namespace TurtleLogic
 			// For each corner of the square
 			// If it is within the turtle box
 			// collision
+
+			// Create new location for box
+			// Increment score
+			// Show Score
 		}
 
 		bool SquareContainsPoint (Point square, Size size, Point p)
