@@ -5,6 +5,9 @@ namespace TurtleLogic
 {
 	public class PongGame : ITurtleGame
 	{
+		int PlayerOneScore = 0;
+		int PlayerTwoScore = 0;
+
 		public PongGame ()
 		{
 		}
@@ -22,9 +25,10 @@ namespace TurtleLogic
 
 		void DrawScore (ITurtleDrawing drawing)
 		{
-			// Variable - two score variable
-			// Position to draw
-			// Do drawing
+			double scoreOneX = drawing.ScreenWidth * .25;
+			double scoreTwoX = drawing.ScreenWidth * .75;
+			drawing.DrawText (Colors.White, new Point ((int)scoreOneX, 20), PlayerOneScore.ToString ());
+			drawing.DrawText (Colors.White, new Point ((int)scoreTwoX, 20), PlayerTwoScore.ToString ());
 		}
 
 		void DrawBall (ITurtleDrawing drawing)

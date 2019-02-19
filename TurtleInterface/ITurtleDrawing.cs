@@ -56,5 +56,8 @@ namespace TurtleInterface
 		void DrawTriangle (Color color, Point point, int rotationDegrees);
 		void DrawText (Color color, Point point, string text);
 		void DrawTurtle (Point point);
+
+		double ScreenWidth { get; }
+		double ScreenHeight { get; }
 	}
 }

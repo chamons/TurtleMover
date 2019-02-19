@@ -15,6 +15,9 @@ namespace TurtleMover
 
 		public SKCanvas CurrentCanvas { get; set; }
 
+		public double ScreenWidth => 500;
+		public double ScreenHeight => 500;
+
 		SKColor FromColor (Color color) => new SKColor (color.Red, color.Green, color.Blue);
 		SKPoint FromPoint (Point point) => new SKPoint (point.X, point.Y);
 
