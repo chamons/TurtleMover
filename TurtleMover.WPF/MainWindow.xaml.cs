@@ -61,6 +61,7 @@ namespace TurtleMover.WPF
 		void OnPlatformPaint (object sender, SkiaSharp.Views.Desktop.SKPaintSurfaceEventArgs e)
 		{
 			Drawer.CurrentCanvas = e.Surface.Canvas;
+			Drawer.CurrentCanvasSize = e.Info.Size;
 			Drawer.CurrentCanvas.Clear (SKColors.Black);
 
 			Game.OnDraw (Frame, Drawer);
