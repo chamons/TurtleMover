@@ -104,13 +104,13 @@ namespace TurtleLogic
 				new Point (LeftPaddleX, LeftPaddleY),
 				new Size (PaddleWidth, PaddleHeight)))
 			{
-				HandleCollision ();
+				HandleCollision (true);
 			}
 			else if (SquareContainsSquare (BallPosition, BallSize,
 				new Point (RightPaddleX, RightPaddleY),
 			 	new Size (PaddleWidth, PaddleHeight)))
 			{
-				HandleCollision ();
+				HandleCollision (false);
 			}
 		}
 
@@ -119,10 +119,31 @@ namespace TurtleLogic
 			BallVelocityY *= -1;
 		}
 
-		void HandleCollision ()
+		void HandleCollision (bool isLeft)
 		{
 			BallVelocityX *= -1;
-			BallVelocityY *= -1;
+			//BallVelocityY *= -1;
+
+			int ballMidpoint = BallPosition.Y + (BallSize.Height / 2);
+
+			int paddleBottom;
+			if (isLeft)
+				paddleBottom = LeftPaddleY + PaddleHeight;
+			else
+				paddleBottom = RightPaddleY + PaddleHeight;
+
+			int delta = paddleBottom - ballMidpoint;
+
+			int sectionHeight = PaddleHeight / 6;
+			int numberOfSection = delta / sectionHeight;
+			// range (-1, 7)
+			// This is all sorts of wrong
+			// "Real" pong uses the velocity of the paddle...
+			int[] wiggle = { -2, -2, -1, -1, 0, 1, 1, 2, 2 };
+			int actualWiggle = wiggle [numberOfSection + 1];
+			BallVelocityY += actualWiggle;
+			BallVelocityY = Math.Min (-4, BallVelocityY);
+			BallVelocityY = Math.Max (4, BallVelocityY);
 
 			// BUG - Able to spear the ball
 		}
