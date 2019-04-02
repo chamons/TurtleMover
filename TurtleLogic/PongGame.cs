@@ -43,7 +43,7 @@ namespace TurtleLogic
 			}
 
 			drawing.Fill (Colors.Black);
-			drawing.DrawSquare (new Color (128, 128, 128), new Point (0, 0), PlayArea);
+			drawing.DrawSquare (new Color (255, 215, 0), new Point (0, 0), PlayArea);
 
 			DrawPaddle (drawing);
 			DrawBall (drawing);
@@ -71,19 +71,19 @@ namespace TurtleLogic
 		{
 			double scoreOneX = drawing.ScreenWidth * .25;
 			double scoreTwoX = drawing.ScreenWidth * .75;
-			drawing.DrawText (Colors.White, new Point ((int)scoreOneX, 20), PlayerOneScore.ToString ());
-			drawing.DrawText (Colors.White, new Point ((int)scoreTwoX, 20), PlayerTwoScore.ToString ());
+			drawing.DrawText (Colors.Blue, new Point ((int)scoreOneX, 20), PlayerOneScore.ToString ());
+			drawing.DrawText (Colors.Red, new Point ((int)scoreTwoX, 20), PlayerTwoScore.ToString ());
 		}
 
 		void DrawBall (ITurtleDrawing drawing)
 		{
-			drawing.DrawSquare (Colors.White, BallPosition, BallSize);
+			drawing.DrawSquare (Colors.Green, BallPosition, BallSize);
 		}
 	
 		void DrawPaddle (ITurtleDrawing drawing)
 		{
-			drawing.DrawSquare (Colors.White, new Point (LeftPaddleX, LeftPaddleY), new Size (PaddleWidth, PaddleHeight));
-			drawing.DrawSquare (Colors.White, new Point (RightPaddleX, RightPaddleY), new Size (PaddleWidth, PaddleHeight));
+			drawing.DrawSquare (Colors.Blue, new Point (LeftPaddleX, LeftPaddleY), new Size (PaddleWidth, PaddleHeight));
+			drawing.DrawSquare (Colors.Red, new Point (RightPaddleX, RightPaddleY), new Size (PaddleWidth, PaddleHeight));
 		}
 
 		void HandlePhysics ()
